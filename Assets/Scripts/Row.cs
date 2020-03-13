@@ -39,26 +39,53 @@ public class Row : MonoBehaviour
         rowStopped = false;
         timeInterval = 0.025f;
         for (int i = 0; i < 30; i++){
-            if (transform.position.y <= -3.5f)
-                transform.position = new Vector2(transform.position.x, 1.75f);
+            if (transform.position.y <= -15f)
+                transform.position = new Vector2(transform.position.x, 15f);
 
-            transform.position = new Vector3(transform.position.x, transform.position.y - 0.75f);
+            transform.position = new Vector3(transform.position.x, transform.position.y - 1.00f);
             yield return new WaitForSeconds(timeInterval);
         }
         randomValue = Random.Range(60, 100);
 
-        switch (randomValue % 3)
+        switch (randomValue % 12)
         {
             case 1:
-                randomValue += 2;
+                randomValue += 11;
                 break;
             case 2:
+                randomValue += 10;
+                break;
+            case 3:
+                randomValue += 9;
+                break;
+            case 4:
+                randomValue += 8;
+                break;
+            case 5:
+                randomValue += 7;
+                break;
+            case 6:
+                randomValue += 6;
+                break;
+            case 7:
+                randomValue += 5;
+                break;
+            case 8:
+                randomValue += 4;
+                break;
+            case 9:
+                randomValue += 3;
+                break;
+            case 10:
+                randomValue += 2;
+                break;
+            case 11:
                 randomValue += 1;
                 break;
         }
         for (int i = 0; i < randomValue; i++){
-            if (transform.position.y <= -3.5)
-                transform.position = new Vector2(transform.position.x, 1.75f);
+            if (transform.position.y <= -15)
+                transform.position = new Vector2(transform.position.x, 15f);
 
             transform.position = new Vector2(transform.position.x, transform.position.y - 0.25f);
 
@@ -73,7 +100,7 @@ public class Row : MonoBehaviour
 
             yield return new WaitForSeconds(timeInterval);
         }
-            stoppedSlot =  slotValues[transform.position.y];
+            stoppedSlot =  "Diamond"; //slotValues[transform.position.y];
             rowStopped = true;
     }
 
