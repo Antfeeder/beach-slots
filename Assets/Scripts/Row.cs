@@ -7,6 +7,7 @@ public class Row : MonoBehaviour
     private int randomValue;
     private float timeInterval;
 
+    public int rowPosition;
     public bool rowStopped;
     public string stoppedSlot;
 
@@ -38,14 +39,15 @@ public class Row : MonoBehaviour
     {
         rowStopped = false;
         timeInterval = 0.025f;
-        for (int i = 0; i < 30; i++){
+        for (int i = 0; i < 30+(rowPosition*10); i++){
             if (transform.position.y <= -15f)
                 transform.position = new Vector2(transform.position.x, 15f);
 
             transform.position = new Vector3(transform.position.x, transform.position.y - 1.00f);
             yield return new WaitForSeconds(timeInterval);
         }
-        randomValue = Random.Range(60, 100);
+        transform.position = new Vector3(transform.position.x, randomSlot(3.0f, 15f, -15f));
+        /*randomValue = Random.Range(60, 100);
 
         switch (randomValue % 12)
         {
@@ -99,13 +101,20 @@ public class Row : MonoBehaviour
                 timeInterval = 0.2f;
 
             yield return new WaitForSeconds(timeInterval);
-        }
+        }*/
             stoppedSlot =  "Diamond"; //slotValues[transform.position.y];
             rowStopped = true;
     }
 
     private void slotValue(float y){
 
+    }
+
+
+    private float randomSlot(float slotSize, float startRange, float endRange){
+        int i = Random.Range(0, 10);
+        int[] j = new int[] {-15, -12, -9, -6, -3, 0, 3, 6, 9, 12, 15};
+        return (float)j[i];
     }
 
     private void OnDestroy()
