@@ -9,14 +9,14 @@ public class GameControl : MonoBehaviour
     public static event Action HandlePulled = delegate { };
 
     [SerializeField]
-    private Text prizeText;
+    private Text prizeText = null;
 
 
     [SerializeField]
-    private Row[] rows;
+    private Row[] rows = null;
 
-    [SerializeField]
-    private Transform handle;
+    //[SerializeField]
+    //private Transform handle = null;
 
     private int prizeValue;
     
@@ -36,29 +36,30 @@ public class GameControl : MonoBehaviour
             CheckResults();
             prizeText.enabled = true;
             prizeText.text = "Prize: " + prizeValue;
-            StartCoroutine("PullHandle");
+            Debug.Log("Test");
         }
      
     }
-    private void OnMouseDown(){
+    public void Spin(){
 
+        Debug.Log("Test");
         if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped && rows[3].rowStopped){
             StartCoroutine("PullHandle");
             
         }
     }
-
+    
     private IEnumerator PullHandle(){
-        for (int i = 0; i < 15;i+=5){
+        /*for (int i = 0; i < 15;i+=5){
             handle.Rotate(0f, 0f, i);
             yield return new WaitForSeconds(0.1f);
-        }
+        }*/
         HandlePulled();
-        for (int i = 0; i < 15; i +=5){
+        /*for (int i = 0; i < 15; i +=5){
             handle.Rotate(0f, 0f, -i);
             yield return new WaitForSeconds(0.1f);
-        }
-           
+        }*/
+        yield return new WaitForSeconds(0.1f);
     }
 
     private void CheckResults(){
@@ -121,6 +122,5 @@ public class GameControl : MonoBehaviour
     {
 
     }
-
 
 }
