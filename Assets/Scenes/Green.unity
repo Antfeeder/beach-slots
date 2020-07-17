@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 292190072}
   stopTime: 2.5
-  rowPosition: 0
+  rowPosition: 1
   rowStopped: 0
   stoppedSlot: 
   sprites:
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1859025130}
   stopTime: 3
-  rowPosition: 0
+  rowPosition: 2
   rowStopped: 0
   stoppedSlot: 
   sprites:

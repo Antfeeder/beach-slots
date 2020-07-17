@@ -33,7 +33,7 @@ public class GreenRow : MonoBehaviour
         Debug.Log("Test");
         rowStopped = false;
         timeInterval = 0.025f;
-        for (int i = 0; i < 52; i++){
+        for (int i = 0; i < 26+(rowPosition*26); i++){
             if (transform.position.y <= -3.25f){
                 spriteRenderer.sprite = sprites[Random.Range(0,6)];
                 transform.position = new Vector2(transform.position.x, 3.25f);
